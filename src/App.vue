@@ -8,19 +8,19 @@
 </template>
 
 <script>
-// import qs from 'query-string'
+import qs from "query-string";
 import { getSeller } from "api";
 import VHeader from "components/v-header/v-header";
 import Goods from "components/goods/goods";
-// import Ratings from 'components/ratings/ratings'
-// import Seller from 'components/seller/seller'
+import Ratings from "components/ratings/ratings";
+import Seller from "components/seller/seller";
 import Tab from "components/tab/tab";
 
 export default {
   data() {
     return {
       seller: {
-        // id: qs.parse(location.search).id
+        id: qs.parse(location.search).id
       }
     };
   },
@@ -36,16 +36,16 @@ export default {
         },
         {
           label: "评论",
-          // component: Ratings,
+          component: Ratings,
           data: {
-            // seller: this.seller
+            seller: this.seller
           }
         },
         {
           label: "商家",
-          // component: Seller,
+          component: Seller,
           data: {
-            // seller: this.seller
+            seller: this.seller
           }
         }
       ];
@@ -57,7 +57,7 @@ export default {
   methods: {
     _getSeller() {
       getSeller({
-        //id: this.seller.id
+        id: this.seller.id
       }).then(seller => {
         this.seller = Object.assign({}, this.seller, seller);
         console.log("seller id", this.seller);

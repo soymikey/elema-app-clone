@@ -28,16 +28,16 @@
               </div>
             </transition>
           </div>
-          <!-- <split v-show="food.info"></split> -->
+          <split v-show="food.info"></split>
           <div class="info" v-show="food.info">
             <h1 class="title">商品信息</h1>
             <p class="text">{{food.info}}</p>
           </div>
-          <!-- <split></split> -->
+          <split></split>
           <div class="rating">
             <h1 class="title">商品评价</h1>
-            <!-- <rating-select @select="onSelect" @toggle="onToggle" :selectType="selectType" :onlyContent="onlyContent" :desc="desc" :ratings="ratings">
-            </rating-select> -->
+            <rating-select @select="onSelect" @toggle="onToggle" :selectType="selectType" :onlyContent="onlyContent" :desc="desc" :ratings="ratings">
+            </rating-select>
             <div class="rating-wrapper">
               <ul v-show="computedRatings && computedRatings.length">
                 <li v-for="(rating,index) in computedRatings" class="rating-item border-bottom-1px" :key="index">
@@ -61,10 +61,10 @@
 </template>
 
 <script type="text/ecmascript-6">
-//  import moment from 'moment'
+import moment from "moment";
 import CartControl from "components/cart-control/cart-control";
-//  import RatingSelect from 'components/rating-select/rating-select'
-//  import Split from 'components/split/split'
+import RatingSelect from "components/rating-select/rating-select";
+import Split from "components/split/split";
 import ratingMixin from "common/mixins/rating";
 import popupMixin from "common/mixins/popup";
 
@@ -113,13 +113,13 @@ export default {
       this.$emit(EVENT_ADD, target);
     },
     format(time) {
-      //return moment(time).format("YYYY-MM-DD hh:mm");
+      return moment(time).format("YYYY-MM-DD hh:mm");
     }
   },
   components: {
-    CartControl
-    // RatingSelect,
-    // Split
+    CartControl,
+    RatingSelect,
+    Split
   }
 };
 </script>
