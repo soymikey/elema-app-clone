@@ -1,6 +1,11 @@
+var fs = require("fs");
 const express = require("express");
-
 const app = express();
+var https = require("https");
+var privateKey = fs.readFileSync("./elema-ssl.key", "utf8");
+var certificate = fs.readFileSync("elema-ssl.pem", "utf8");
+
+var credentials = { key: privateKey, cert: certificate };
 
 const appData = require("./data.json");
 const seller = appData.seller;
@@ -44,10 +49,4 @@ app.use(express.static("./dist"));
 
 const port = process.env.PORT || 8000;
 
-module.exports = app.listen(port, function(err) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  console.log("Listening at http://localhost:" + port + "\n");
-});
+module.exports = https.createServer(credentials, app).listen(port);
