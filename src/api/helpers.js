@@ -2,7 +2,7 @@ import axios from "axios";
 
 const urlMap = {
   development: "/",
-  production: "https://119.23.201.183:8000/"
+  production: "https://elema.migaox.com:8000/"
 };
 const baseUrl = urlMap[process.env.NODE_ENV];
 const ERR_OK = 0;
