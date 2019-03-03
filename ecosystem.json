@@ -18,7 +18,7 @@
             "port": "39999",
             "ref": "origin/master",
             "repo": "git@github.com:soymikey/elema-app-clone.git",
-            "path": "www/elema/production",
+            "path": "/www/elema/production",
             "ssh_options": "StrictHostKeyChecking=no",
             "env": {
                 "NODE_ENV": "production"
