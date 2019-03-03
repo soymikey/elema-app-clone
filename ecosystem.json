@@ -1,0 +1,28 @@
+{
+    "apps": [
+        {
+            "name": "elema",
+            "script": "app.js",
+            "env": {
+                "COMMON_VARIABLE": "true"
+            },
+            "env_production": {
+                "NODE_ENV": "production"
+            }
+        }
+    ],
+    "deploy": {
+        "production": {
+            "user": "michael",
+            "host": ["119.23.201.183"],
+            "port": "39999",
+            "ref": "origin/master",
+            "repo": "git@github.com:soymikey/elema-app-clone.git",
+            "path": "www/elema/production",
+            "ssh_options": "StrictHostKeyChecking=no",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    }
+}
